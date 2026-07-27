@@ -7,12 +7,12 @@ e painel administrativo, pronto para publicar no Firebase Hosting e no GitHub.
 
 ```
 discipulado-igreja/
-├── public/
-│   └── index.html      ← o app inteiro (não mexer, exceto o firebaseConfig)
-├── firebase.json        ← configuração do Hosting + Realtime Database
-├── database.rules.json  ← regras do Realtime Database
-├── .firebaserc           ← já aponta para o projeto "discipulado-igreja"
-└── .gitignore
+├── index.html            ← o app inteiro (não mexer, exceto o firebaseConfig)
+├── firebase.json         ← configuração do Hosting + Realtime Database
+├── database.rules.json   ← regras do Realtime Database
+├── .firebaserc            ← já aponta para o projeto "discipulado-igreja"
+├── .gitignore
+└── README.md
 ```
 
 ---
@@ -20,7 +20,7 @@ discipulado-igreja/
 ## PASSO 1 — Configuração do Firebase ✅ já feita
 
 O `firebaseConfig` do projeto **discipulado-igreja** já está inserido dentro de
-`public/index.html`. Você não precisa mexer nisso.
+`index.html`. Você não precisa mexer nisso.
 
 ## PASSO 2 — Confirmar que o Realtime Database está criado
 
@@ -48,7 +48,7 @@ Dentro da pasta `discipulado-igreja` (onde está o `firebase.json`):
 firebase deploy
 ```
 
-Isso publica o `public/index.html` como seu site (ex: `https://discipulado-igreja.web.app`) **e** publica as regras do Realtime Database.
+Isso publica o `index.html` como seu site (ex: `https://discipulado-igreja.web.app`) **e** publica as regras do Realtime Database.
 
 Se quiser publicar só o Hosting:
 ```bash
