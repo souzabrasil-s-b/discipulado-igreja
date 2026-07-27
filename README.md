@@ -1,4 +1,4 @@
-# Discipulado — Igreja de Vencedores
+# Discipulado — Igreja de Vencedores 
 
 App de discipulado (46 lições + quiz) com cadastro de alunos, registro de acessos
 e painel administrativo, pronto para publicar no Firebase Hosting e no GitHub.
