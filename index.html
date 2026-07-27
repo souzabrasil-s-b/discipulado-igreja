@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Discipulado • Igreja de Vencedores</title>
 <meta name="theme-color" content="#152140">
-<link rel="manifest" href="data:application/manifest+json,{}">
+<link rel="manifest" href="./manifest.json">
+<link rel="apple-touch-icon" href="./icon-192.png">
 <style>
   :root{
     --navy-950:#0d1730;
@@ -820,6 +821,12 @@ loadWhatsappLink(() => { if(route.view === 'home' || route.view === 'admin') ren
 setInterval(heartbeat, 60000);
 
 render();
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./service-worker.js');
+  });
+}
 </script>
 </body>
 </html>
