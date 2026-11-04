@@ -1,20 +1,9 @@
-const CACHE_NAME = 'discipulado-v1';
-const urlsToCache = [
-  './',
-  './index.html',
-  './manifest.json',
-  './icon-192.png',
-  './icon-512.png'
-];
-
-self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
-  );
+// O Discipulado mudou de endereço: este arquivo só limpa o que o app antigo guardou no aparelho.
+self.addEventListener('install', function(){ self.skipWaiting(); });
+self.addEventListener('activate', function(e){
+  e.waitUntil(caches.keys().then(function(ks){ return Promise.all(ks.map(function(k){ return caches.delete(k); })); })
+    .then(function(){ return self.registration.unregister(); })
+    .then(function(){ return self.clients.matchAll({ type: 'window' }); })
+    .then(function(cs){ cs.forEach(function(c){ c.navigate(c.url); }); }));
 });
-
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request).then(response => response || fetch(event.request))
-  );
-});
+self.addEventListener('fetch', function(e){ e.respondWith(fetch(e.request)); });
