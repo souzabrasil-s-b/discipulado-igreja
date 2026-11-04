@@ -7,3 +7,4 @@ self.addEventListener('activate', function(e){
     .then(function(cs){ cs.forEach(function(c){ c.navigate(c.url); }); }));
 });
 self.addEventListener('fetch', function(e){ e.respondWith(fetch(e.request)); });
+ 
